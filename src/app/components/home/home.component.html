@@ -1,0 +1,20 @@
+<div class="p-5">
+    <table class="table table-bordered table-success">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Localidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(dept of departamentos;track dept){
+                <tr>
+                    <td>{{dept.idDepartamento}}</td>
+                    <td>{{dept.nombre}}</td>
+                    <td>{{dept.localidad}}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
