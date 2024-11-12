@@ -13,8 +13,18 @@ export class HomeComponent implements OnInit{
   constructor(private _service:ServiceDepartamentos){}
 
   ngOnInit(): void {
+    this.loadDepartamentos();
+  }
+
+  loadDepartamentos():void{
     this._service.getDepartamentos().subscribe(response =>{
       this.departamentos = response;
+    })
+  }
+
+  borrarDepartamento(id:number):void{
+    this._service.deleteDepartamento(id.toString()).subscribe(response =>{
+      this.loadDepartamentos();
     })
   }
 }

@@ -14,6 +14,12 @@ export class ServiceDepartamentos{
         return this._http.get(url);
     }
 
+    getDepartamento(id:string):Observable<any>{
+        let request = "api/departamentos/" + id
+        let url = environment.urlDept + request;
+        return this._http.get(url);
+    }
+
     postDepartamentos(departamento:Departamento):Observable<any>{
         let json = JSON.stringify(departamento);
         let header = new HttpHeaders();
@@ -22,4 +28,19 @@ export class ServiceDepartamentos{
         let url = environment.urlDept + request
         return this._http.post(url,json,{headers:header});
     }
+
+    putDepartamento(departamento:Departamento):Observable<any>{
+        let json = JSON.stringify(departamento);
+        let header = new HttpHeaders().set("Content-type","application/json");
+        let request = "api/departamentos"
+        let url = environment.urlDept + request;
+        return this._http.put(url,json,{headers:header})
+    }
+
+    deleteDepartamento(id:string):Observable<any>{
+        let request = "api/departamentos/" + id;
+        let url = environment.urlDept + request;
+        return this._http.delete(url);
+    }
+
 }

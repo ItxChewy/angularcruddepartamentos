@@ -5,15 +5,36 @@
                 <th>Id</th>
                 <th>Nombre</th>
                 <th>Localidad</th>
+                <th>Detalle</th>
+                <th>Edit</th>
+                <th>Borrar</th>
             </tr>
         </thead>
         <tbody>
             @for(dept of departamentos;track dept){
-                <tr>
-                    <td>{{dept.idDepartamento}}</td>
-                    <td>{{dept.nombre}}</td>
-                    <td>{{dept.localidad}}</td>
-                </tr>
+            <tr>
+                <td>{{dept.idDepartamento}}</td>
+                <td>{{dept.nombre}}</td>
+                <td>{{dept.localidad}}</td>
+                <td>
+                    <a [routerLink]="['/detalle' ,dept.idDepartamento,dept.nombre,
+                    dept.localidad]" class="btn btn-primary btn-sm">
+                        Detalle
+                    </a>
+                </td>
+                <td>
+                    <a [routerLink]="['/edit' , dept.idDepartamento]"
+                    class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-danger"
+                    (click) = "borrarDepartamento(dept.idDepartamento)">
+                    Eliminar
+                </button>
+                </td>
+            </tr>
             }
         </tbody>
     </table>

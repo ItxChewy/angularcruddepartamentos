@@ -1,0 +1,13 @@
+<div class="p-5">
+    <h3>Detalle Departamento</h3>
+    <form #createForm="ngForm">
+        <label class="form-label">Id</label>
+        <input type="number" #cajaid name="cajaid" class="form-control" value="{{departamento.idDepartamento}}"/>
+        <label class="form-label">Nombre</label>
+        <input type="text" #cajanombre name="cajanombre" class="form-control" value="{{departamento.nombre}}"/>
+        <label class="form-label">Localidad</label>
+        <input type="text" #cajalocalidad name="cajalocalidad" class="form-control" value="{{departamento.localidad}}"/>
+        <br>
+    </form>
+</div>
+
